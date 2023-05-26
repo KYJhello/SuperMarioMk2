@@ -12,12 +12,13 @@ public class Mushroom : Item, IMoveable, IBornToBlock
 
     private void Awake()
     {
-        itemInfo = Items.mushroom;
+        itemInfo = ItemList.mushroom;
         doMove = false;
     } 
 
     private void Start()
     {
+
     }
 
     private void Update()
