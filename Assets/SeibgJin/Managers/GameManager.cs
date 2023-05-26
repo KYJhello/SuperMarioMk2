@@ -84,16 +84,16 @@ using static UnityEditor.Progress;
 
     // 현재 플레이어의 상태를 저장하는 변수
     // PlayerState currentPlayerState = GameManager.Instance.GetCurrentPlayerState();
-    
+
     // 현재 플레이어 상태를 반환하는 함수
+    public enum ItemList { mushroom, fire, star, coin }
+    public enum State { SmallMario, BigMario, FireMario, StarMario, Dead, Size }
+
     public PlayerState GetCurrentPlayerState()
     {
         return playerController.currentState; //현재 플레이어 상태 변환
     }
-    public enum ItemList { mushroom, fire, star, coin }
-    public enum State { SmallMario, BigMario, FireMario, StarMario, Dead, Size }
-
-
+   
     private State state = State.SmallMario;
     private void GetItem(ItemList itemList)
     {
