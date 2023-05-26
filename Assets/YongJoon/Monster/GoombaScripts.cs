@@ -6,17 +6,17 @@ public class GoombaScripts : Monster
 {
     public enum State { Idle, Left, Right, Die}
 
-    private bool isDie = false;
+    //private bool isDie = false;
 
     [SerializeField] private float moveSpeed = 1.0f;
-    [SerializeField] Transform wallCheckPoint;
     [SerializeField] LayerMask GoombaMask;
-    //[SerializeField] PlayerPrefs player;
+    private GameObject player;
 
 
     private Rigidbody2D rb;
     private Animator anim;
-    private Collider2D collider;
+    private CapsuleCollider2D capCollider;
+    private CircleCollider2D circleCollider;
     public State curState;
     
     
@@ -25,8 +25,9 @@ public class GoombaScripts : Monster
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //player = GetComponent<PlayerPrefs>();
-        collider = GetComponent<Collider2D>();
+        player = GameObject.FindWithTag("Player");
+        capCollider = GetComponent<CapsuleCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
         curState = State.Left;
     }
 
@@ -48,7 +49,7 @@ public class GoombaScripts : Monster
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger ON");
+        Debug.Log("MonsterTrigger ON");
         
         if(other.gameObject.name == "Fire")
         {
@@ -67,11 +68,16 @@ public class GoombaScripts : Monster
             }
         }else if(other.gameObject.tag == "Player")
         {
-
-        }
-        else
-        {
-            anim.SetBool("MonsterDie", true);
+            if(player.transform.position.y - transform.position.y > 1f)
+            {
+                anim.SetBool("MonsterDie", true);
+                Debug.Log("±À¹Ù Á×À½");
+                Die();
+            }
+            else
+            {
+                Debug.Log("ÇÃ·¹ÀÌ¾î Á×À½");
+            }
         }
         
     }
@@ -79,6 +85,7 @@ public class GoombaScripts : Monster
     {
         rb.gravityScale = 1.0f;
         rb.velocity = Vector2.up * 3;
-        collider.enabled = false;
+        capCollider.enabled = false;
+        circleCollider.enabled = false;
     }
 }

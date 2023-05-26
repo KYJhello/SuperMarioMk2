@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3950584308877606183}
   - component: {fileID: 8671937499182588599}
   - component: {fileID: 1024823076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: goomba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,8 +34,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6877093536687788033}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1402688555
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1887960421, guid: a9697747a7f13c7429e8f32bdee18f29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,8 +150,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0024622083, y: 0.49610555}
-  m_Size: {x: 0.9922111, y: 0.9922111}
+  m_Offset: {x: 0.0024621189, y: 0.49610555}
+  m_Size: {x: 0.9922109, y: 0.9922111}
   m_Direction: 0
 --- !u!58 &3950584308877606183
 CircleCollider2D:
@@ -167,9 +166,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5807391}
+  m_Offset: {x: 0, y: 0.5294506}
   serializedVersion: 2
-  m_Radius: 0.5144642
+  m_Radius: 0.5657527
 --- !u!114 &8671937499182588599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  wallCheckPoint: {fileID: 0}
   GoombaMask:
     serializedVersion: 2
     m_Bits: 0
@@ -209,34 +207,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &5602410741984229948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6877093536687788033}
-  m_Layer: 8
-  m_Name: wallCheckPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6877093536687788033
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5602410741984229948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 991289416021076353}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
