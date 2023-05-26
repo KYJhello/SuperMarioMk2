@@ -49,7 +49,7 @@ public class GoombaScripts : Monster
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger ON");
+        Debug.Log("MonsterTrigger ON");
         
         if(other.gameObject.name == "Fire")
         {
