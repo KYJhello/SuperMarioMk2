@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEditor.Build.Content;
 using UnityEngine;
 
-
+public enum ItemList { mushroom, fire, star, coin }
 public abstract class Item : MonoBehaviour
 {
-    protected enum Items { mushroom, fire, star, coin };
     // 아이템 코드
     // 0 = 버섯
     // 1 = 불꽃      
     // 2 = 별        
     // 3 = 코인  
-    [SerializeField] protected Items itemInfo;
+    public ItemList itemInfo;
     [SerializeField] protected Transform blockPos;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected Animator animator;
