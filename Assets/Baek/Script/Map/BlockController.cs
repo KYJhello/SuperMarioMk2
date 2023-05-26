@@ -7,6 +7,7 @@ public class BlockController : MonoBehaviour
     [SerializeField] private GameObject _particleSystem;
     [SerializeField] private bool isRepeat;
     private Animator anim;
+
     private void Awake()
     {
         if(isRepeat)

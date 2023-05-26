@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3396633884459116296}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3396633885079987926}
   - component: {fileID: 3396633885079987925}
   - component: {fileID: 1559022381360402067}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,8 +106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 926690561
-  m_SortingLayer: -2
+  m_SortingLayerID: 1093646391
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1124158440, guid: fb4d3b678a12233479ed84a13f8cd98d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -158,6 +158,7 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   forwardCheckPoint: {fileID: 3396633884459116296}
+  upperCheckPoint: {fileID: 0}
   wallMask:
     serializedVersion: 2
     m_Bits: 2176
