@@ -170,10 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpPower: 5
-  runSpeed: 10
-  runRepeat: 0
+  maxSpeed: 0
   jumpBoxCheckPoint: {fileID: 5451639355654113388}
-  itemBoxPoint: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -202,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8625473150045084872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

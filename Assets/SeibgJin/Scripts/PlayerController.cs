@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpPower;
     [SerializeField] private float maxSpeed;
-    
+
 
 
     [SerializeField] Transform jumpBoxCheckPoint;
-    [SerializeField] Transform itemBoxPoint;
+
 
     [SerializeField] LayerMask groundLayer;
 
@@ -21,21 +23,24 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 inputDir;
     private bool isGround;
-   
+
     private Transform target;
 
-    public enum State { BigMario, SmallMario, FireMario, Death, Size }
+    public UnityEvent onPlayerDead;
+    public UnityEvent onGetItem;
 
-   
+
+    private State state = State.SmallMario;
+    public enum State { SmallMario, BigMario, FireMario, StarMario, Dead, Size }
+    private bool takeDamage = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-      
+
 
     }
 
-    
     /*
     private void OnRunPerformed(InputAction.CallbackContext context)
     {
@@ -64,15 +69,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         currentState = new SmallMarioState(this);
     }
 
     private void Update()
     {
         Move();
-        currentState.Update();
+        // currentState.Update();
+
+
 
     }
+
     private void FixedUpdate()
     {
         //GetCoin();
@@ -104,8 +113,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Run()
-    { 
-       
+    {
+
     }
 
     private void OnMove(InputValue value)
@@ -146,16 +155,15 @@ public class PlayerController : MonoBehaviour
     private void GroundCheck()
     {
 
+        Debug.DrawRay(jumpBoxCheckPoint.position, Vector2.down, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(jumpBoxCheckPoint.position, Vector2.down, 1.05f, groundLayer);
         if (hit.collider != null)
         {
             isGround = true;
-            Debug.DrawRay(transform.position, new Vector3(hit.point.x, hit.point.y, 0) - transform.position, Color.red);
         }
         else
         {
             isGround = false;
-            Debug.DrawRay(transform.position, Vector3.down * 1.05f, Color.green);
         }
     }
 
@@ -178,6 +186,7 @@ public class PlayerController : MonoBehaviour
     }
     */
 
+    /*
     // 충돌
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -206,30 +215,36 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    */
 
-    
-    private void playersit()
+
+    private void SmallMarioUpdate()
     {
-
+        state = State.SmallMario;
+        Debug.Log("마리오작아짐");
     }
 
-    private void sizeUp()
+    private void BigMarioUpdate()
     {
-
+        state = State.BigMario;
+        Debug.Log("마리오커짐");
     }
 
-    private void sizeDown()
+    private void FireMarioUpdate()
     {
-
+        state = State.FireMario;
+        Debug.Log("파이어마리오됨");
     }
 
-    private void powerUp()
+    private void StarMarioUpdate()
     {
-
+        state = State.StarMario;
+        Debug.Log("별마리오됨");
     }
 
-    private void powerDown()
+    private void DeadUpdate()
     {
-
+        state = State.Dead;
+        Debug.Log("마리오죽음");
     }
 }

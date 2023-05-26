@@ -11,9 +11,40 @@ public abstract class PlayerState
         this.player = player;
     }
 
-    public virtual void Enter() { }
-    public virtual void Update() { }
-    public virtual void Exit() { }
+    public virtual void Enter() 
+    {
+
+    }
+    public virtual void Update() 
+    {
+
+    }
+
+    public virtual void Exit() 
+    {
+
+    }
+}
+
+public class SmallMarioState : PlayerState
+{
+    public SmallMarioState(PlayerController player) : base(player) { }
+
+    public override void Enter()
+    {
+        // SmallMario로 변환
+    }
+
+    public override void Update()
+    {
+
+    }
+
+    public override void Exit()
+    {
+        // SmallMario에서 풀릴때
+        // 몬스터피격
+    }
 }
 
 public class BigMarioState : PlayerState
@@ -37,26 +68,7 @@ public class BigMarioState : PlayerState
     }
 }
 
-public class SmallMarioState : PlayerState
-{
-    public SmallMarioState(PlayerController player) : base(player) { }
 
-    public override void Enter()
-    {
-        // SmallMario로 변환
-    }
-
-    public override void Update()
-    {
-        
-    }
-
-    public override void Exit()
-    {
-        // SmallMario에서 풀릴때
-        // 몬스터피격
-    }
-}
 
 public class FireMarioState : PlayerState
 {
@@ -78,9 +90,9 @@ public class FireMarioState : PlayerState
     }
 }
 
-public class DeathState : PlayerState
+public class DeadState : PlayerState
 {
-    public DeathState(PlayerController player) : base(player) { }
+    public DeadState(PlayerController player) : base(player) { }
 
     public override void Enter()
     {
