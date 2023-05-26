@@ -47,11 +47,17 @@ TagManager:
   - name: Background_outter
     uniqueID: 4136687741
     locked: 0
+  - name: Item
+    uniqueID: 1093646391
+    locked: 0
   - name: Ground_Block
     uniqueID: 1038295863
     locked: 0
   - name: Player
     uniqueID: 908644055
+    locked: 0
+  - name: Monster
+    uniqueID: 1742069895
     locked: 0
   - name: UI
     uniqueID: 1179339467
