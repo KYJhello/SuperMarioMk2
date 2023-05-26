@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpPower;
-    [SerializeField] private float runSpeed;
-    [SerializeField] private float runRepeat;
+    [SerializeField] private float maxSpeed;
+    
+
 
     [SerializeField] Transform jumpBoxCheckPoint;
     [SerializeField] Transform itemBoxPoint;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 
     
-
+    /*
     private void OnRunPerformed(InputAction.CallbackContext context)
     {
         float runInput = context.ReadValue<float>();
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
+    */
 
     private void OnRunCanceled(InputAction.CallbackContext context)
     {
@@ -98,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(Vector2.up * jumpPower * (moveSpeed * 1.2f), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 
     public void Run()
@@ -119,7 +121,7 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-
+    /*
     private void OnRun(InputValue value)
     {
         float runInput = value.Get<float>();
@@ -133,12 +135,14 @@ public class PlayerController : MonoBehaviour
 
             rb.AddForce(Vector2.right * runInput * runSpeed, ForceMode2D.Impulse);
         }
-
+    
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
+    */
+
     private void GroundCheck()
     {
 
@@ -181,7 +185,7 @@ public class PlayerController : MonoBehaviour
         {
 
             // ƒ⁄¿Œ¿Ã 1 ¡ı∞°«—¥Ÿ
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
             GameManager.Data.AddCoinCount(1);
             GameManager.Data.AddScoreCount(1000);
             Debug.Log("ƒ⁄¿Œ»πµÊ");
@@ -190,14 +194,14 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.gameObject.name == "Mushroom")   // πˆº∏
         {
             // smallMario∞° bigMario∑Œ ªÛ≈¬ ¿¸»Ø
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
             Debug.Log("πˆº∏»πµÊ");
         }
         if (collision.collider.gameObject.name == "Flower")   // ≤…
         {
             // smallMario∞° bigMario∑Œ ªÛ≈¬ ¿¸»Ø
             // bigMario∞° fireMario∑Œ ªÛ≈¬ ¿¸»Ø
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
             Debug.Log("≤…»πµÊ");
         }
 
