@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
     {
          if (rb.velocity.x < moveSpeed)
             rb.AddForce(Vector2.right * moveSpeed);
+        if (rb.velocity.x > moveSpeed)
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
         /*
         if (inputDir.x < 0 && rb.velocity.x > -moveSpeed)
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour
         else if (inputDir.x > 0 && rb.velocity.x < moveSpeed)
             rb.AddForce(Vector2.right * inputDir.x * moveSpeed, ForceMode2D.Force);
         */
+
     }
 
     public void Jump()
