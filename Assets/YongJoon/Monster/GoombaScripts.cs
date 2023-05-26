@@ -6,17 +6,17 @@ public class GoombaScripts : Monster
 {
     public enum State { Idle, Left, Right, Die}
 
-    //private bool isDie = false;
+    private bool isDie = false;
 
     [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] Transform wallCheckPoint;
     [SerializeField] LayerMask GoombaMask;
-    private GameObject player;
+    //[SerializeField] PlayerPrefs player;
 
 
     private Rigidbody2D rb;
     private Animator anim;
-    private CapsuleCollider2D capCollider;
-    private CircleCollider2D circleCollider;
+    private Collider2D collider;
     public State curState;
     
     
@@ -25,9 +25,8 @@ public class GoombaScripts : Monster
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
-        capCollider = GetComponent<CapsuleCollider2D>();
-        circleCollider = GetComponent<CircleCollider2D>();
+        //player = GetComponent<PlayerPrefs>();
+        collider = GetComponent<Collider2D>();
         curState = State.Left;
     }
 
@@ -68,16 +67,11 @@ public class GoombaScripts : Monster
             }
         }else if(other.gameObject.tag == "Player")
         {
-            if(player.transform.position.y - transform.position.y > 1f)
-            {
-                anim.SetBool("MonsterDie", true);
-                Debug.Log("±À¹Ù Á×À½");
-                Die();
-            }
-            else
-            {
-                Debug.Log("ÇÃ·¹ÀÌ¾î Á×À½");
-            }
+
+        }
+        else
+        {
+            anim.SetBool("MonsterDie", true);
         }
         
     }
@@ -85,7 +79,6 @@ public class GoombaScripts : Monster
     {
         rb.gravityScale = 1.0f;
         rb.velocity = Vector2.up * 3;
-        capCollider.enabled = false;
-        circleCollider.enabled = false;
+        collider.enabled = false;
     }
 }
